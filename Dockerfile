@@ -58,4 +58,4 @@ RUN DJANGO_SETTINGS_MODULE=rich360.settings.dev python manage.py collectstatic -
 #   PRACTICE. The database should be migrated manually or using the release
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
-CMD set -xe; python manage.py migrate --noinput; gunicorn rich360.wsgi:application
+CMD set -xe; python manage.py migrate --noinput; gunicorn rich360.wsgi:application --worker-tmp-dir /dev/shm --bind 0.0.0.0:$PORT
