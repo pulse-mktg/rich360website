@@ -46,8 +46,8 @@ COPY --chown=wagtail:wagtail . .
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
-# Collect static files.
-RUN python manage.py collectstatic --noinput --clear
+# Collect static files (use dev settings at build time — no SECRET_KEY needed).
+RUN DJANGO_SETTINGS_MODULE=rich360.settings.dev python manage.py collectstatic --noinput --clear
 
 # Runtime command that executes when "docker run" is called, it does the
 # following:
