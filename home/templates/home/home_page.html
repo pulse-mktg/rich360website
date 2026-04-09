@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block title %}Rich360 Digital — Data Engineering & Analytics{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Data Engineering &amp; Analytics</div>
+        <h1>{{ page.hero_headline|default:"SEE THE TRENDS." }}<br><span class="accent">{{ page.hero_subheadline|default:"SHAPE THE FUTURE." }}</span></h1>
+        <p class="hero-sub">{{ page.hero_body }}</p>
+        <div class="hero-cta">
+            <a href="/contact/" class="btn btn-primary">Let's Talk</a>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="section">
+    <div class="section-inner">
+        <div class="text-center" style="margin-bottom: 16px;">
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title" style="margin: 0 auto; max-width: 600px;">Data services that move your business forward</h2>
+        </div>
+        <div class="services-grid">
+            {% for block in page.services %}
+                {% if block.block_type == 'service' %}
+                <div class="service-card">
+                    <div class="service-icon">
+                        {% if forloop.counter == 1 %}
+                        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        {% elif forloop.counter == 2 %}
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        {% else %}
+                        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        {% endif %}
+                    </div>
+                    <h3>{{ block.value.title }}</h3>
+                    <p>{{ block.value.description }}</p>
+                </div>
+                {% endif %}
+            {% empty %}
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <h3>Data Engineering</h3>
+                    <p>Our data engineering services create robust architectures and pipelines to efficiently manage, process, and store data, ensuring it's ready for seamless analysis and decision-making.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+                    <h3>Data Visualization</h3>
+                    <p>Our data visualization and dashboard services transforms complex data into clear, interactive visuals, making it easier to understand insights and communicate them effectively.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                    <h3>Data Analysis</h3>
+                    <p>Our data analytics service helps uncover meaningful trends, patterns, and insights from large datasets, providing the foundation for data-driven business strategies.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band">
+    <div class="section-inner text-center">
+        <h2>{{ page.cta_headline }}</h2>
+        <p>{{ page.cta_subheading }}</p>
+        <a href="/contact/" class="btn btn-white">Let's Talk</a>
+    </div>
+</section>
+
+{% endblock %}

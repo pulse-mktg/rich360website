@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block title %}Let's Talk — Rich360 Digital{% endblock %}
+
+{% block content %}
+<div class="contact-layout">
+
+    <!-- Left: Info -->
+    <div class="contact-info">
+        <h1>Let's <span>Talk!</span></h1>
+
+        <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:{{ page.contact_phone }}">{{ page.contact_phone }}</a>
+        </div>
+        <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:{{ page.contact_email }}">{{ page.contact_email }}</a>
+        </div>
+
+        <p style="margin-top: 40px; font-size: 15px; color: var(--gray-500); line-height: 1.75;">
+            Whether you're looking to automate your reporting, build out a data pipeline, or get a custom dashboard for your clients—we'd love to hear from you.
+        </p>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-form-card">
+        {% if form %}
+            {% if page.thank_you_text and not form.errors %}{% endif %}
+        {% endif %}
+
+        <h2 style="font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 8px;">Send us a message</h2>
+        <p style="font-size: 15px; color: var(--gray-500); margin-bottom: 32px;">We'll get back to you within one business day.</p>
+
+        <form action="." method="post" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}{% if field.field.required %} <span style="color: var(--purple);">*</span>{% endif %}
+                </label>
+                {% if field.field.widget.input_type == 'textarea' %}
+                    <textarea
+                        name="{{ field.html_name }}"
+                        id="{{ field.id_for_label }}"
+                        {% if field.field.required %}required{% endif %}
+                        placeholder="{{ field.field.widget.attrs.placeholder|default:'' }}"
+                        rows="5">{{ field.value|default:'' }}</textarea>
+                {% else %}
+                    <input
+                        type="{{ field.field.widget.input_type }}"
+                        name="{{ field.html_name }}"
+                        id="{{ field.id_for_label }}"
+                        value="{{ field.value|default:'' }}"
+                        {% if field.field.required %}required{% endif %}
+                        placeholder="{{ field.field.widget.attrs.placeholder|default:'' }}">
+                {% endif %}
+                {% if field.errors %}
+                <div style="color: #dc2626; font-size: 13px; margin-top: 4px;">{{ field.errors.0 }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary form-submit">Start The Conversation</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

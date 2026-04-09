@@ -1,0 +1,63 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block title %}
+        {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+        {% endblock %}
+        {% block title_suffix %}
+        {% wagtail_site as current_site %}
+        {% if current_site and current_site.site_name %} - {{ current_site.site_name }}{% endif %}
+        {% endblock %}
+    </title>
+    {% if page.search_description %}
+    <meta name="description" content="{{ page.search_description }}" />
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if request.in_preview_panel %}
+    <base target="_blank">
+    {% endif %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/rich360.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    {% wagtailuserbar %}
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-rich">Rich</span><span class="logo-360">360</span> Digital
+            </a>
+            <ul class="nav-links">
+                <li><a href="/for-agencies/" {% if page.slug == 'for-agencies' %}class="active"{% endif %}>For Agencies</a></li>
+                <li><a href="/for-businesses/" {% if page.slug == 'for-businesses' %}class="active"{% endif %}>For Businesses</a></li>
+                <li><a href="/contact/" class="nav-cta">Let's Talk</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <a href="/" class="footer-logo">
+                <span class="logo-rich">Rich</span><span class="logo-360">360</span> Digital
+            </a>
+            <p class="footer-copy">&copy; Rich360 Digital LLC 2025. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/rich360.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

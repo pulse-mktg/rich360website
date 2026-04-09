@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}For Businesses — Rich360 Digital{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">For Businesses</div>
+        <h1>{{ page.hero_headline }}<br><span class="accent">{{ page.hero_subheadline }}</span></h1>
+        <p class="hero-sub">{{ page.hero_body }}</p>
+        <div class="hero-cta">
+            <a href="/contact/" class="btn btn-primary">Let's Talk</a>
+        </div>
+    </div>
+</section>
+
+<!-- Feature: Building Your Data Foundation -->
+<section class="section">
+    <div class="section-inner">
+        <div class="feature-row">
+            <div class="feature-content">
+                <div class="section-label">Data Foundation</div>
+                <h2 class="section-title">{{ page.feature_headline }}</h2>
+                <p class="section-body">{{ page.feature_body }}</p>
+                <a href="/contact/" class="btn btn-primary">Let's Talk</a>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-inner">
+                    <!-- ETL diagram -->
+                    <div class="etl-diagram">
+                        <div class="etl-box">Sources<br><small style="font-weight:400;font-size:10px;">CSV · API · DB</small></div>
+                        <div class="etl-arrow">→</div>
+                        <div class="etl-box">Transform<br><small style="font-weight:400;font-size:10px;">Clean · Enrich</small></div>
+                        <div class="etl-arrow">→</div>
+                        <div class="etl-box">Deliver<br><small style="font-weight:400;font-size:10px;">Dashboard · Report</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chart collage section -->
+<section class="section section-light">
+    <div class="section-inner">
+        <div class="feature-row reverse">
+            <div class="feature-content">
+                <div class="section-label">Real-Time Insights</div>
+                <h2 class="section-title">From raw data to clear decisions</h2>
+                <p class="section-body">Stop spending hours in spreadsheets. We build automated pipelines that keep your data fresh and your dashboards live—so you always have the insight you need, when you need it.</p>
+                <a href="/contact/" class="btn btn-primary">Let's Talk</a>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-inner">
+                    <div class="chart-grid">
+                        <div class="chart-mini">
+                            <div class="chart-bar" style="height:60%;"></div>
+                            <div class="chart-bar" style="height:80%;"></div>
+                            <div class="chart-bar" style="height:45%;"></div>
+                            <div class="chart-bar" style="height:90%;"></div>
+                            <div class="chart-bar" style="height:70%;"></div>
+                        </div>
+                        <div class="chart-mini" style="background: white; border: 1px solid var(--gray-300); padding: 10px; align-items: flex-start; flex-direction: column; gap: 6px;">
+                            <div style="font-size: 9px; font-weight: 700; color: var(--gray-500); text-transform: uppercase;">Revenue YTD</div>
+                            <div style="font-size: 22px; font-weight: 900; color: var(--dark); line-height: 1;">$1.2M</div>
+                            <div style="font-size: 10px; color: #16a34a; font-weight: 600;">▲ 18% vs last year</div>
+                        </div>
+                        <div class="chart-mini" style="background: white; border: 1px solid var(--gray-300); padding: 10px; align-items: flex-start; flex-direction: column; gap: 6px;">
+                            <div style="font-size: 9px; font-weight: 700; color: var(--gray-500); text-transform: uppercase;">Customers</div>
+                            <div style="font-size: 22px; font-weight: 900; color: var(--dark); line-height: 1;">3,841</div>
+                            <div style="font-size: 10px; color: #16a34a; font-weight: 600;">▲ 7% this month</div>
+                        </div>
+                        <div class="chart-mini">
+                            <div class="chart-bar" style="height:40%; background: var(--purple-dark);"></div>
+                            <div class="chart-bar" style="height:65%; background: var(--purple-dark);"></div>
+                            <div class="chart-bar" style="height:55%; background: var(--purple-dark);"></div>
+                            <div class="chart-bar" style="height:85%; background: var(--purple-dark);"></div>
+                            <div class="chart-bar" style="height:50%; background: var(--purple-dark);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band">
+    <div class="section-inner text-center">
+        <h2>Ready to Automate Your Data?</h2>
+        <p>Ditch the spreadsheets. Let's build something that works for you.</p>
+        <a href="/contact/" class="btn btn-white">Let's Talk</a>
+    </div>
+</section>
+
+{% endblock %}

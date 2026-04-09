@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}For Agencies — Rich360 Digital{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">For Agencies</div>
+        <h1>{{ page.hero_headline }}<br><span class="accent">{{ page.hero_subheadline }}</span></h1>
+        <p class="hero-sub">{{ page.hero_body }}</p>
+        <div class="hero-cta">
+            <a href="/contact/" class="btn btn-primary">Let's Talk</a>
+        </div>
+    </div>
+</section>
+
+<!-- Feature: Fully Managed Dashboards -->
+<section class="section">
+    <div class="section-inner">
+        <div class="feature-row">
+            <div class="feature-content">
+                <div class="section-label">White-Label Dashboards</div>
+                <h2 class="section-title">{{ page.feature_headline }}</h2>
+                <p class="section-body">{{ page.feature_body }}</p>
+                <a href="/contact/" class="btn btn-primary">Let's Talk</a>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-inner">
+                    <div class="dash-mockup">
+                        <div class="dash-header-bar">
+                            <div class="dash-dot"></div>
+                            <div class="dash-dot"></div>
+                            <div class="dash-dot"></div>
+                        </div>
+                        <div class="dash-body">
+                            <div class="dash-widget">
+                                <div class="dash-widget-label">Sessions</div>
+                                <div class="dash-widget-val">24.5K</div>
+                                <div class="dash-widget-bar" style="width:75%"></div>
+                            </div>
+                            <div class="dash-widget">
+                                <div class="dash-widget-label">Conv. Rate</div>
+                                <div class="dash-widget-val">3.8%</div>
+                                <div class="dash-widget-bar" style="width:40%"></div>
+                            </div>
+                            <div class="dash-widget">
+                                <div class="dash-widget-label">Revenue</div>
+                                <div class="dash-widget-val">$82K</div>
+                                <div class="dash-widget-bar" style="width:60%"></div>
+                            </div>
+                            <div class="dash-widget">
+                                <div class="dash-widget-label">ROAS</div>
+                                <div class="dash-widget-val">4.2x</div>
+                                <div class="dash-widget-bar" style="width:85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Secondary Feature -->
+<section class="section section-light">
+    <div class="section-inner">
+        <div class="feature-row reverse">
+            <div class="feature-content">
+                <div class="section-label">Scalable &amp; Flexible</div>
+                <h2 class="section-title">{{ page.secondary_headline }}</h2>
+                <p class="section-body">{{ page.secondary_body }}</p>
+                <a href="/contact/" class="btn btn-primary">Let's Talk</a>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-inner">
+                    <div style="width: 100%;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                            <div style="background: var(--purple-light); border: 2px solid var(--purple); border-radius: 8px; padding: 12px 16px; font-size: 12px; font-weight: 700; color: var(--purple); text-align: center;">Power BI</div>
+                            <div style="background: var(--purple-light); border: 2px solid var(--purple); border-radius: 8px; padding: 12px 16px; font-size: 12px; font-weight: 700; color: var(--purple); text-align: center;">Looker<br>Studio</div>
+                            <div style="background: var(--purple-light); border: 2px solid var(--purple); border-radius: 8px; padding: 12px 16px; font-size: 12px; font-weight: 700; color: var(--purple); text-align: center;">Tableau</div>
+                        </div>
+                        <div style="margin-top: 20px; text-align: center;">
+                            <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--purple), transparent);"></div>
+                            <div style="margin-top: 16px; background: var(--purple); color: white; border-radius: 8px; padding: 10px; font-size: 12px; font-weight: 700;">Rich360 Digital</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band">
+    <div class="section-inner text-center">
+        <h2>Ready to Scale Your Analytics?</h2>
+        <p>White-label data solutions with no overhead and no contracts.</p>
+        <a href="/contact/" class="btn btn-white">Let's Talk</a>
+    </div>
+</section>
+
+{% endblock %}
